@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<!-- <Create a search button div called zoeman that will search search riku for javascript code on submit to riku.js> -->
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="riku.js"></script>
+  <div id="zoeman">
+    <form action="Connecting Riku/PrintRikuResponse.php" onsubmit=search() method="post" >
+      <input type="text" name="search" placeholder="Search...">
+      <button type="submit" onsubmit="search()" id="search">Search</button>
+    
+   <script>
+    function search() {
+      var search = document.getElementById("search").value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("zoeman").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "riku.js?search=" + search, true);
+      xhttp.send();
+    }
+  
+    </script>
+
+
